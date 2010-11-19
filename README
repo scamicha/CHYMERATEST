@@ -1,0 +1,14 @@
+README for test run of Chymera code
+
+This distrubution contains the source files for chymera as well as a makefile and two run scripts for PBS and direct login.
+
+The code runs with radiation, full EOS, no planet and no fluid elements. It requires only GSL libraries which can be obtained at http://ftpmirror.gnu.org/gsl/. Set environment variables GSL_LIBPATH and GSL_INCPATH to point at your GSL installation. 
+
+The source can be built as a parallel binary with the intel compilers via
+>make COMPILE=intel
+To compile the serial binary use
+>make COMPILE=intel OMP=no
+
+Other compilers are in the Makefile, but have not been tested. 
+
+Run with runchymera or submit with chymera.sub

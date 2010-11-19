@@ -1,0 +1,12 @@
+#!/bin/tcsh
+cp $HOME/CHYMERATEST/chymera-omp .
+cp $HOME/CHYMERATEST/fort.5 .
+cp $HOME/CHYMERATEST/fort.7 .
+cp $HOME/CHYMERATEST/*.dat .
+setenv OMP_NUM_THREADS 8
+setenv KMP_STACKSIZE 2g
+setenv KMP_LIBRARY turnaround
+limit stacksize unlimited
+setenv LD_LIBRARY_PATH $HOME/gsl/lib:$LD_LIBRARY_PATH 
+setenv KMP_AFFINITY compact,verbose,0,0
+/usr/bin/time -o CHYMERAL512c8.time ./chymera-omp > CHYMERAL512c8_550k.out
